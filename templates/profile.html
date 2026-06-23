@@ -1,0 +1,28 @@
+<!doctype html>
+
+
+<h1>Profile: {{ user[1] }}</h1>
+<p><strong>Email:</strong>{{ user[2] }}</p>
+<p><strong>Bio:</strong>{{ user[4] }}</p>
+
+<p>Followers: {{followers|length}}|
+    Followings: {{following|length}}
+
+</p>
+{% if current_user.is_authenticated %}
+<form method="POST" action="/follows/{{ user[1] }}">
+    <button type="submit">Follow/Unfollow</button>
+</form>
+{% endif %}
+
+<h2>Achievements</h2>
+{% if user_achievements %}
+<ul>
+    {% for achievement in user_achievements %}
+    <li><strong>{{ achievement[0] }}</strong> </li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>no acheivement earned</p>
+    {% endif %}
+    <p><a href="/">Home</a></p>

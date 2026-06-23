@@ -1,0 +1,24 @@
+<!doctype html>
+<table boarder="2">
+    <tr>
+        <th>Rank</th>
+        <th>Dense</th>
+         <th>Percent</th>
+        <th>Users</th>
+        <th>Points</th>
+    </tr>
+    {% for r in rows %}
+    <tr{% if r[0]==me%} style="background-color:lightpink ;"{% endif %}>
+        <td>{{ r[2] }}</td>
+          <td>{{ r[3] }}</td>
+            <td>{{ r[4] }}</td>
+              <td>{{ r[0] }}</td>
+                 <td>{{ r[1] }}</td>
+                 </tr>
+                 {% endfor %}
+
+
+
+
+
+</table>
